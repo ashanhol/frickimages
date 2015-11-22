@@ -6,10 +6,11 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var formidable = require('formidable');
 var azure = require('azure-storage');
+var nconf = require('nconf');
 
-var accountName = "frickimages";
-var accountKey = "xmQhvZyBj5mswE0Pk5Bk2VjHli1R3FXWCWqA4ALvbheCAXtoVEu+l2RC3JLeCSREYX17N7SsUUJtkM8kSx4erg==";
 
+var accountName = nconf.get("STORAGE_NAME");
+var accountKey = nconf.get("STORAGE_KEY");
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
