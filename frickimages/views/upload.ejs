@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+
+    <head>
+
+        <link href="/css/reset.css" rel="stylesheet"/>
+        <link href="/css/default.css" rel="stylesheet"/>
+        <link href="http://fonts.googleapis.com/css?family=Actor" rel="stylesheet"/>
+        <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
+        <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.6.4.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.16/jquery-ui.min.js"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/modernizr/modernizr-2.0.6-development-only.js"></script>
+
+    
+    </head>
+
+<script>
+    function submitForm() {
+        if ($("#itemName").val().length === 0) {
+            $("#itemNameError").html("You must provide an Name or Id!");
+        } 
+        else {
+            document.forms['upload'].submit();
+        }
+    }
+</script>
+
+<section class="mainSection">
+    <h1 class="pageTitle">Upload file</h1>
+    <form id="upload" action="/uploadhandler" method="post" enctype="multipart/form-data">
+        <fieldset>
+            <legend>Upload</legend>
+            <ol>
+                <li>
+                    <label for="itemName">Name/ID</label>
+                    <input type="text" id="itemName" name="itemName" />
+                    <span id="itemNameError" class="error"></span>
+                </li>
+                <input type="file" name="uploadedFile" />
+            </ol>
+            <input type="button" class="submit" value="Upload" title="Upload" onclick="javascript:submitForm()" />
+        </fieldset>
+    </form>
+</section>
+
